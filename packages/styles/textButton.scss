@@ -1,0 +1,44 @@
+.text-button {
+  display: inline-block;
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+
+  &.is-disabled {
+    cursor: not-allowed !important;
+  }
+
+  &-default {
+    color: inherit;
+  }
+  &-primary {
+    color: var(--el-color-primary);
+    &.is-disabled {
+      color: var(--el-color-primary-light-5);
+    }
+  }
+  &-success {
+    color: var(--el-color-success);
+    &.is-disabled {
+      color: var(--el-color-success-light-5);
+    }
+  }
+  &-warning {
+    color: var(--el-color-warning);
+    &.is-disabled {
+      color: var(--el-color-warning-light-5);
+    }
+  }
+  &-error {
+    color: var(--el-color-error);
+    &.is-disabled {
+      color: var(--el-color-error-light-5);
+    }
+  }
+  &-info {
+    color: var(--el-color-info);
+    &.is-disabled {
+      color: var(--el-color-info-light-5);
+    }
+  }
+}

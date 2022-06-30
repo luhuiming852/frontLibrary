@@ -1,0 +1,30 @@
+.contextmenu {
+  position: fixed;
+  top: 110px;
+  left: 200px;
+  z-index: 10000;
+  &-wrap {
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: var(--el-box-shadow);
+    padding: 5px 0;
+  }
+  &-items {
+    list-style-type: none;
+    box-sizing: border-box;
+    li {
+      cursor: pointer;
+      user-select: none;
+      line-height: 34px;
+      padding: 0 25px 0 15px;
+      border-bottom: 1px solid var(--el-border-color-extra-light);
+      &:last-child {
+        border: none;
+      }
+      &:hover {
+        background-color: var(--el-color-primary-light-9);
+      }
+    }
+  }
+}

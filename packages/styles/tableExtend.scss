@@ -1,0 +1,40 @@
+.table-extend {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0%;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 100px;
+  .tool-panel {
+    display: flex;
+    width: 100%;
+  }
+  .right-panel {
+    flex: 1 0 0%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .el-table--border td {
+    border-right: none;
+  }
+  .btn-col-setting {
+    cursor: pointer;
+    font-size: 18px;
+  }
+  .el-pagination {
+    margin-top: 20px;
+  }
+  .el-empty {
+    padding: 0;
+  }
+  .el-empty__description {
+    margin-top: 0;
+  }
+  .has-more {
+    cursor: pointer;
+    color: var(--color-primary);
+  }
+}
