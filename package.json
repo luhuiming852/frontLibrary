@@ -1,7 +1,7 @@
 {
   "name": "qk-frontlib",
   "private": false,
-  "version": "0.2.2",
+  "version": "0.1.0",
   "license": "Apache 2.0",
   "description": "vue front library",
   "author": "luhuiming",
