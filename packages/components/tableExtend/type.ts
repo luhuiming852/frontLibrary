@@ -140,7 +140,7 @@ export interface TableColumn {
    */
   sortable?: boolean;
   /** 是否固定 */
-  fixed?: boolean;
+  fixed?: "left" | "right";
   /** 是否为文件 */
   isFile?: boolean;
   /**

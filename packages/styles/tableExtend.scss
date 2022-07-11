@@ -20,10 +20,6 @@
   .el-table--border td {
     border-right: none;
   }
-  .btn-col-setting {
-    cursor: pointer;
-    font-size: 18px;
-  }
   .el-pagination {
     margin-top: 20px;
   }
@@ -36,5 +32,41 @@
   .has-more {
     cursor: pointer;
     color: var(--color-primary);
+  }
+}
+
+.default-tool {
+  margin-left: 6px;
+}
+
+.set-column-list-wrap {
+  max-height: 70vh;
+  overflow: auto;
+}
+.set-column-check-group {
+  .group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 32px;
+  }
+  .fixed-wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 50px;
+    font-size: 16px;
+    color: #333;
+  }
+  .fixed-icon {
+    cursor: pointer;
+    &:first-child {
+      transform: rotate(-90deg);
+    }
+    &:last-child {
+      transform: rotate(90deg);
+    }
+    &.active {
+      color: var(--el-color-primary);
+    }
   }
 }

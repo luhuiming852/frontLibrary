@@ -6,15 +6,17 @@
       </div>
       <div class="right-panel">
         <slot name="tool-right">
-          <col-visible-setting v-if="isSetColumn"></col-visible-setting>
         </slot>
+        <div class="default-tool">
+          <col-visible-setting v-if="isSetColumn"></col-visible-setting>
+        </div>
       </div>
     </div>
     <el-table ref="tableRef" v-bind="tableAttribute" :data="tableData" v-loading="tableLoading" height="100%"
       @sort-change="tableSort" @selection-change="handleSelectionChange" @row-click="rowClick"
       @row-dblclick="rowDblClick">
-      <el-table-column v-if="selectionCol" type="selection" width="48"></el-table-column>
-      <el-table-column v-if="indexCol" class="table-index" type="index" width="58"></el-table-column>
+      <el-table-column v-if="selectionCol" type="selection" width="48" fixed="left"></el-table-column>
+      <el-table-column v-if="indexCol" type="index" width="58" fixed="left"></el-table-column>
       <template v-for="item in colSettingList" :key="item.prop">
         <el-table-column v-if="isUpload(item.prop)" v-bind="item">
           <template #default="scope">
@@ -63,7 +65,6 @@
 </template>
 
 <script lang="ts" setup>
-// import { ElTable, ElTableColumn, ElPagination, ElImageViewer, ElEmpty, vLoading } from 'element-plus';
 import useTable from "./../useTable";
 import type { TableProvies } from "./../type";
 import useProps from './../useProps';

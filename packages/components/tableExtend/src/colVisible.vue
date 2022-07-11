@@ -1,34 +1,34 @@
 <template>
-    <el-popover placement="bottom" title="列显示设置">
+    <el-popover placement="bottom" title="列显示设置" :width="220">
         <template #reference>
-            <el-icon class="btn-col-setting">
-                <setting />
+            <el-icon>
+                <Setting />
             </el-icon>
         </template>
         <div class="set-column-list-wrap">
-            <el-checkbox
-                :indeterminate="isIndeterminate"
-                v-model="checkAllColumns"
-                @change="onCheckAllColumnChange"
-            >全选</el-checkbox>
-            <el-checkbox-group
-                class="set-column-check-group"
-                v-model="checkColumnProp"
-                @change="onCheckedColumnChange"
-            >
-                <el-checkbox
-                    class="set-column-check"
-                    v-for="colum in tableColums"
-                    :label="colum.prop"
-                    :key="colum.prop"
-                >{{ colum.label }}</el-checkbox>
+            <el-checkbox :indeterminate="isIndeterminate" v-model="checkAllColumns" @change="onCheckAllColumnChange">全选
+            </el-checkbox>
+            <el-checkbox-group class="set-column-check-group" v-model="checkColumnProp" @change="onCheckedColumnChange">
+                <div class="group-item" v-for="colum in tableColums" :key="colum.prop">
+                    <el-checkbox class="set-column-check" :label="colum.prop">{{ colum.label }}</el-checkbox>
+                    <div class="fixed-wrap">
+                        <el-icon :class="['fixed-icon', colum.fixed === 'left' && 'active']" title="固定到左边"
+                            @click="onChangeFixed('left', colum)">
+                            <Upload />
+                        </el-icon>
+                        <el-divider direction="vertical" />
+                        <el-icon :class="['fixed-icon', colum.fixed === 'right' && 'active']" title="固定到右边"
+                            @click="onChangeFixed('right', colum)">
+                            <Upload />
+                        </el-icon>
+                    </div>
+                </div>
             </el-checkbox-group>
         </div>
     </el-popover>
 </template>
 
 <script lang="ts" setup>
-// import { ElPopover, ElIcon, ElCheckbox, ElCheckboxGroup } from 'element-plus';
 import type { TableProvies } from './../type';
 
 
@@ -65,6 +65,16 @@ function onCheckedColumnChange(colProps: Array<string>) {
         const checkedCount = colProps.length;
         checkAllColumns.value = checkedCount === tableColums.value.length;
         isIndeterminate.value = checkedCount > 0 && checkedCount < tableColums.value.length;
+    }
+}
+
+/**固定列 */
+function onChangeFixed(type: 'left' | 'right', prop: any) {
+    if (prop.fixed === type) {
+        prop.fixed = undefined;
+    }
+    else {
+        prop.fixed = type;
     }
 }
 
